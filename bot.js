@@ -76,7 +76,7 @@ if (message.content.startsWith(adminprefix + 'setT')) {
     message.channel.sendMessage(`**تم تغيير تويتش البوت إلى  ${argresult}**`)
 }
 
-Rocket.on('message', message => {//restart
+client.on('message', message => {//restart
     if(message.content === adminprefix + "rest") {
           if (!devs.includes(message.author.id)) return;
               message.channel.send(`⚠️ **الشخص الذي اعاد تشغيل البوت ${message.author.username}**`);
