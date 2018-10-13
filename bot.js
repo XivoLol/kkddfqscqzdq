@@ -18,7 +18,7 @@ const fs = require('fs');
 
 const client = new Discord.Client({disableEveryone: true});
 
-const prefix = "!";
+const prefix = "x!";
 /////////////////////////
 ////////////////////////
 
@@ -40,6 +40,54 @@ client.on('message', async msg =>{
     msg.delete().catch(O_o=>{})
     msg.channel.send(embed);
     }
+});
+client.on('message', message => {//invite
+     if (message.content === "x!invite") {
+     let embed = new Discord.RichEmbed()
+.setColor("RANDOM")
+.setTitle("Click Here to invite XivoMusic")
+.setAuthor("XivoMusic", "https://media.discordapp.net/attachments/500416283700101129/500602919855325184/XivoBot.png?width=241&height=241")
+.setTimestamp()
+.setURL("https://discordapp.com/api/oauth2/authorize?client_id=500674336873775144&permissions=8&scope=bot")
+  message.author.sendEmbed(embed);
+    }
+});
+const adminprefix = "x!";
+const devs = ['336614900329611264'];
+Rocket.on('message', message => {//for dev
+  var argresult = message.content.split(` `).slice(1).join(' ');
+    if (!devs.includes(message.author.id)) return;
+
+if (message.content.startsWith(adminprefix + 'setgame')) {
+  Rocket.user.setGame(argresult);
+    message.channel.sendMessage(`**${argresult} تم تغيير بلاينق البوت إلى **`)
+} else
+  if (message.content.startsWith(adminprefix + 'setname')) {
+Rocket.user.setUsername(argresult).then
+    message.channel.sendMessage(`**${argresult}** : تم تغيير أسم البوت إلى`)
+return message.reply("**لا يمكنك تغيير الاسم يجب عليك الانتظآر لمدة ساعتين . **");
+} else
+  if (message.content.startsWith(adminprefix + 'setavatar')) {
+Rocket.user.setAvatar(argresult);
+  message.channel.sendMessage(`**${argresult}** : تم تغير صورة البوت`);
+      } else
+if (message.content.startsWith(adminprefix + 'setT')) {
+  Rocket.user.setGame(argresult, "https://www.twitch.tv/faresgameryt");
+    message.channel.sendMessage(`**تم تغيير تويتش البوت إلى  ${argresult}**`)
+}
+
+Rocket.on('message', message => {//restart
+    if(message.content === adminprefix + "restart") {
+          if (!devs.includes(message.author.id)) return;
+              message.channel.send(`⚠️ **الشخص الذي اعاد تشغيل البوت ${message.author.username}**`);
+            console.log(`⚠️ جاري اعادة تشغيل البوت... ⚠️`);
+            Rocket.destroy();
+            child_process.fork(__dirname + "/bot.js");
+            console.log(`تم اعادة تشغيل البوت`);
+        }
+
+
+    });
 });
 /////////////////////////
 ////////////////////////
