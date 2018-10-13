@@ -42,7 +42,7 @@ client.on('message', async msg =>{
     }
 });
 client.on('message', message => {//invite
-     if (message.content === "x!invite") {
+     if (message.content === "x!inv") {
      let embed = new Discord.RichEmbed()
 .setColor("RANDOM")
 .setTitle("Click Here to invite XivoMusic")
@@ -58,16 +58,16 @@ Rocket.on('message', message => {//for dev
   var argresult = message.content.split(` `).slice(1).join(' ');
     if (!devs.includes(message.author.id)) return;
 
-if (message.content.startsWith(adminprefix + 'setgame')) {
+if (message.content.startsWith(adminprefix + 'setG')) {
   Rocket.user.setGame(argresult);
     message.channel.sendMessage(`**${argresult} تم تغيير بلاينق البوت إلى **`)
 } else
-  if (message.content.startsWith(adminprefix + 'setname')) {
+  if (message.content.startsWith(adminprefix + 'setN')) {
 Rocket.user.setUsername(argresult).then
     message.channel.sendMessage(`**${argresult}** : تم تغيير أسم البوت إلى`)
 return message.reply("**لا يمكنك تغيير الاسم يجب عليك الانتظآر لمدة ساعتين . **");
 } else
-  if (message.content.startsWith(adminprefix + 'setavatar')) {
+  if (message.content.startsWith(adminprefix + 'setA')) {
 Rocket.user.setAvatar(argresult);
   message.channel.sendMessage(`**${argresult}** : تم تغير صورة البوت`);
       } else
@@ -77,7 +77,7 @@ if (message.content.startsWith(adminprefix + 'setT')) {
 }
 
 Rocket.on('message', message => {//restart
-    if(message.content === adminprefix + "restart") {
+    if(message.content === adminprefix + "rest") {
           if (!devs.includes(message.author.id)) return;
               message.channel.send(`⚠️ **الشخص الذي اعاد تشغيل البوت ${message.author.username}**`);
             console.log(`⚠️ جاري اعادة تشغيل البوت... ⚠️`);
