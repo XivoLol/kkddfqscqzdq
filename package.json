@@ -10,7 +10,7 @@
     "ffmpeg-binaries": "^4.0.0",
     "fs": "^0.0.1-security",
     "moment": "^2.22.2",
-    "dateformate": "^3.0.3",
+    "dateformat": "^3.0.3",
     "canvas": "^2.1.0",
     "get-youtube-id": "^1.0.0",
     "common-tags": "^1.8.0",
